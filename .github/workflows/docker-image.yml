@@ -24,7 +24,7 @@ jobs:
     - name: Login to ECR
       run: aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/z5n5d8t1
 
-    - name: Build, tag and push the Docker image
+    - name: Build, tag and push the Docker-Image
       run: |
         docker build . -t docker-php-image:$(date +%s)
         docker tag aws-docker-image-php:latest public.ecr.aws/z5n5d8t1/aws-docker-image-php:latest
